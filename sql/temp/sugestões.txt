@@ -1,0 +1,2 @@
+1-criar interface para cadastro de metadados. Objetos de banco de dados, pacotes DTS, relatórios
+2-criar interface para agendamento de rotinas e execução de processos
