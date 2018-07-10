@@ -459,6 +459,24 @@ function ListaPacotesSucesso(){
 }
 
 
+/*--------------------------------------------------------------*/
+/* Função que lista os pacotes executados no dia
+/*--------------------------------------------------------------*/
+function ListaPacotesExecutadosDia(){
+        try {
+              $conecta_mssql = conecta_mssql::getConnection();
+              $query         = $conecta_mssql->prepare("EXECUTE BUICTRDBS..STP_MONITOR_DW_PACOTE_DIARIO");
+              $query ->execute();
+              return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        catch (PDOException $exception){
+        echo  $exception->getMessage();
+        echo "Erro!";
+        return null;
+        }              
+}
+
 
 ?>
 
