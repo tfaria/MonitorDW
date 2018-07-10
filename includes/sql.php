@@ -471,12 +471,30 @@ function ListaPacotesExecutadosDia(){
         }
 
         catch (PDOException $exception){
-        echo  $exception->getMessage();
+        //echo  $exception->getMessage();
         echo "Erro!";
-        return null;
+        //return null;
         }              
 }
 
+/*--------------------------------------------------------------*/
+/* Função que retorna grupo de carga
+/*--------------------------------------------------------------*/
+function RecuperaDataGrupoCarga($grupo){
+        try {
+              $conecta_mssql = conecta_mssql::getConnection();
+              $query         = $conecta_mssql->prepare('EXECUTE BUICTRDBS..STP_MONITOR_DW_GRUPO_CARGA :grupo');
+              $query ->bindValue(':grupo', $grupo);
+              $query ->execute();
+              //return $query->bindParam('1');
+              //return $query->bindParam(1,PDO::PARAM_STR, 4000); 
 
-?>
+        }
+
+        catch (PDOException $exception){
+        //echo  $exception->getMessage();
+        echo "Erro!";
+        //return null;
+        }              
+}
 

@@ -11,7 +11,7 @@ class conecta_mssql
    public static function getConnection() {
   
        $pdoConfig  = DB_MSSQL_DRIVER . ":". "Server=" . DB_MSSQL_HOST . ";";
-       $pdoConfig .= "Database=".DB_MSSQL_BIDASA.";";
+       $pdoConfig .= "Database=".DB_MSSQL_BUICTRDBS.";";
        
        try {
            if(!isset($conecta_mssql)){

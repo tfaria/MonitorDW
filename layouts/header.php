@@ -19,10 +19,11 @@
   <body>
   <?php  if ($session->isUserLoggedIn(true)): ?>
     <header id="header">
-      <a href="index.php" class="logo pull-left"> MONITOR DW </a>
+      <a href="index.php" class="logo pull-left" class="glyphicon glyphicon-home"> MONITOR DW </a>
       <div class="header-content">
       <div class="header-date pull-left">
         <strong><?php echo date("d/m/Y  g:i a");?></strong>
+        <h2 class="margin-top"> <?php RecuperaDataGrupoCarga('Fatos')?> </h2>
       </div>
       <div class="pull-right clearfix">
         <ul class="info-menu list-inline list-unstyled">

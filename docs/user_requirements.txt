@@ -1,0 +1,4 @@
+Requisitos do usuário
+* Acesso leitura/escrita DB_TEMP, BUICTRDBS
+* Acesso leitura BIDASA, MSDB (SYSJOBS, SYSJOBHISTORY, SYSSTEP)
+* Acesso de leitura ao

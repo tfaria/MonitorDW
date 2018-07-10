@@ -5,6 +5,12 @@
 ?>
 <?php include_once('layouts/header.php'); ?>
 
+<script type="text/javascript" language="javascript" class="init">   
+setTimeout(function(){
+   window.location.reload(1);
+}, 100000);
+</script>
+
 <script type="text/javascript" language="javascript" class="init">    
 $(document).ready(function() {
     $('#tblpctexesuc').dataTable({
@@ -90,6 +96,8 @@ $(document).ready(function() {
       <thead>
        <tr>
          <th>Pacote</th>
+         <th>Job</th>
+         <th>Step</th>
          <th>Início</th>
          <th>Usuário</th>
          <th>Tempo em exec</th>
@@ -100,6 +108,8 @@ $(document).ready(function() {
           foreach ($rows as $row): ?>
           <tr>
             <td><?php echo $row['DESCRICAOPACOTE'];?></td>
+            <td><?php echo $row['JOB'];?></td>
+            <td><?php echo $row['STEP'];?></td>
             <td><?php echo $row['HORARIOINICIO'];?></td>
             <td><?php echo $row['USUARIOEXEC'];?></td>
             <td><?php echo $row['TEMPO_EM_EXECUCAO'];?></td>
