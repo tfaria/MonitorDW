@@ -20,14 +20,14 @@ $(document).ready(function() {
         "sType": "brazilian", 
         "aoColumns": [
         { "sType": 'text' },
+        { "sType": 'int' },
+        { "sType": 'int' },
         { "sType": 'text' },
         { "sType": 'text' },
         { "sType": 'text' },
         { "sType": 'text' },
-        { "sType": 'text' },
-        { "sType": 'text' },
-        { "sType": 'text' },
-        { "sType": 'text' },
+        { "sType": 'numeric' },
+        { "sType": 'numeric' },
         { "sType": 'text' },
         ]            
     });
