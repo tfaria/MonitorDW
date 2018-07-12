@@ -75,78 +75,78 @@
         </script>
 
           <div class="row">
-            <div class="col-lg-3 col-md-6">
+            <div class="col-md-2">
                 <div class="panel panel-yellow">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
-                                <i class="fa fa-refresh"></i>
+                                <i class="fa fa fa-cogs fa-5x" style="font-size:40px"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge"><?php QtdPacotesEmExecucao()?></div>
+                                <div class="huge"><?php QtdpacotesemExecucao()?></div>
                                 <div>Processos em Execução</div>
                             </div>
                         </div>
                     </div>
                     <a href="#">
-                        <div class="panel-footer">
+                        <a href="#PctExecucao"> <div class="panel-footer">
                             <span class="pull-left">Detalhes</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                             <div class="clearfix"></div>
-                        </div>
+                        </div></a>
                     </a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-md-2">
                 <div class="panel panel-red">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
-                                <i class="fa fa-support fa-5x"></i>
+                                <i class="fa fa-support" style="font-size:40px"></i>
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge"><?php QtdPacotesErro()?></div>
-                                <div>Execuções com Falha</div>
+                                <div>Execuções com falha</div>
                             </div>
                         </div>
                     </div>
                     <a href="#">
-                        <div class="panel-footer">
+                        <a href="#PctExecucaoFalha"> <div class="panel-footer">
                             <span class="pull-left">Detalhes</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                             <div class="clearfix"></div>
-                        </div>
+                        </div></a>
                     </a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-md-2">
                 <div class="panel panel-green">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
-                                <i class="fa fa-tasks fa-5x"></i>
+                                <i class="fa fa-tasks" style="font-size:40px"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge"><?php QtdPacotesSucesso()?>/999</div>
-                                <div>Sucesso x Total</div>
+                                <div class="huge"><?php QtdPacotesSucesso()?></div>
+                                <div>Execuções com Sucesso</div>
                             </div>
                         </div>
                     </div>
                     <a href="#">
-                        <div class="panel-footer">
+                        <a href="#PctExecucaoSucesso"> <div class="panel-footer">
                             <span class="pull-left">Detalhes</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                             <div class="clearfix"></div>
-                        </div>
+                        </div></a>
                     </a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-md-2">
                 <div class="panel panel-gray">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
-                                <i class="fa fa-shopping-cart fa-5x"></i>
+                                <i class="fa fa-ellipsis-h" style="font-size:40px"></i>
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge">0</div>
@@ -155,20 +155,20 @@
                         </div>
                     </div>
                     <a href="#">
-                        <div class="panel-footer">
+                        <a href="#PctExecucaoDemorada"> <div class="panel-footer">
                             <span class="pull-left">Detalhes</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                             <div class="clearfix"></div>
-                        </div>
+                        </div></a>
                     </a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-md-2">
                 <div class="panel panel-black">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
-                                <i class="fa fa-shopping-cart fa-5x"></i>
+                                <i class="fa fa-bomb fa-5x" style="font-size:40px"></i>
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge">0</div>
@@ -177,11 +177,11 @@
                         </div>
                     </div>
                     <a href="#">
-                        <div class="panel-footer">
+                        <a href="#PctProcessoNaoExecutado"> <div class="panel-footer">
                             <span class="pull-left">Detalhes</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                             <div class="clearfix"></div>
-                        </div>
+                        </div></a>
                     </a>
                 </div>
             </div>
@@ -189,14 +189,14 @@
         
         <!--Cards-->
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-2">
             <?php echo display_msg($msg); ?>
           </div>
         </div>
         <div id="accordion">
           <div class="card">
             <div class="card-header" id="headingOne">
-              <h5 class="mb-0">
+              <h5 class="mb-0" id="PctExecucao">
                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                    <span>Pacotes em execução no momento</span>
                 </button>
@@ -253,13 +253,13 @@
         <div id="accordion">
           <div class="card">
             <div class="card-header" id="headingOne">
-              <h5 class="mb-0">
+              <h5 class="mb-0" id="PctExecucaoFalha">
                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                   <span>Pacotes executados com erro</span>
+                   <span>Pacotes executados com falha</span>
                 </button>
               </h5>
             </div>
-            <div id="collapseTwo" class="collapse collapsed" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
               <div class="panel-body">
                 <table id="tblpctexecerro" class="display" cellspacing="0" width="100%" style="font-size: 12px;">
@@ -308,13 +308,13 @@
         <div id="accordion">
           <div class="card">
             <div class="card-header" id="headingThree">
-              <h5 class="mb-0">
+              <h5 class="mb-0" id="PctExecucaoSucesso">
                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                   <span>Pacotes executados no dia</span>
+                   <span>Pacotes executados no dia com sucesso</span>
                 </button>
               </h5>
             </div>
-            <div id="collapseThree" class="collapse collapsed" aria-labelledby="headingThree" data-parent="#accordion">
+            <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
             <div class="card-body">
               <div class="panel-body">
                 <table id="tblpctexesuc" class="display" cellspacing="0" width="100%" style="font-size: 12px;">

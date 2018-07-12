@@ -10,11 +10,11 @@
             else echo "Painel Monitoramento DW";?>
     </title>
 
-    <link rel="stylesheet" href="libs/css/bootstrap.min.css">
-    <link rel="stylesheet" href="libs/css/style3.css">
-    <link rel="stylesheet" href="libs/css/sb-admin-2.css">
-    <link rel="stylesheet" href="libs/css/font-awesome.min.css">
-    <link rel="stylesheet" href="libs/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" type="text/css" href="libs/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="libs/css/style3.css">
+    <link rel="stylesheet" type="text/css" href="libs/css/sb-admin-2.css">
+    <link rel="stylesheet" type="text/css" href="libs/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="libs/css/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.css"/>
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
