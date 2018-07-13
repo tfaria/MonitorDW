@@ -477,18 +477,34 @@ function ListaPacotesExecutadosDia(){
         }              
 }
 
+
 /*--------------------------------------------------------------*/
-/* Função que retorna grupo de carga
+/* Função que retorna grupo de carga executado todos os dias
 /*--------------------------------------------------------------*/
-function RecuperaDataGrupoCarga($grupo){
+function RecuperaDataGrupoCargaDiario(){
         try {
               $conecta_mssql = conecta_mssql::getConnection();
-              $query         = $conecta_mssql->prepare('EXECUTE BUICTRDBS..STP_MONITOR_DW_GRUPO_CARGA :grupo');
-              $query ->bindValue(':grupo', $grupo);
+              $query         = $conecta_mssql->prepare("EXECUTE BUICTRDBS..STP_MONITOR_DW_GRUPO_CARGA_DIARIA");
               $query ->execute();
-              //return $query->bindParam('1');
-              //return $query->bindParam(1,PDO::PARAM_STR, 4000); 
+              return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
 
+        catch (PDOException $exception){
+        //echo  $exception->getMessage();
+        echo "Erro!";
+        //return null;
+        }              
+}
+
+/*--------------------------------------------------------------*/
+/* Função que retorna o horário de início e término da carga
+/*--------------------------------------------------------------*/
+function RecuperaDataIncioFimCarga(){
+        try {
+              $conecta_mssql = conecta_mssql::getConnection();
+              $query         = $conecta_mssql->prepare("EXECUTE BUICTRDBS..STP_MONITOR_DW_INICIO_FIM_ETL_DIARIO");
+              $query ->execute();
+              return $query->fetchAll(PDO::FETCH_ASSOC);
         }
 
         catch (PDOException $exception){

@@ -120,28 +120,6 @@
                 </div>
             </div>
             <div class="col-md-2">
-                <div class="panel panel-green">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-tasks" style="font-size:40px"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge"><?php QtdPacotesSucesso()?></div>
-                                <div>Execuções com Sucesso</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <a href="#PctExecucaoSucesso"> <div class="panel-footer">
-                            <span class="pull-left">Detalhes</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div></a>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-2">
                 <div class="panel panel-gray">
                     <div class="panel-heading">
                         <div class="row">
@@ -185,8 +163,81 @@
                     </a>
                 </div>
             </div>
+            <div class="col-md-2">
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-tasks" style="font-size:40px"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge"><?php QtdPacotesSucesso()?></div>
+                                <div>Execuções com Sucesso</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#">
+                        <a href="#PctExecutadosDia"> <div class="panel-footer">
+                            <span class="pull-left">Detalhes</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div></a>
+                    </a>
+                </div>
+            </div>
         </div>
-        
+
+      <div class="col-lg-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <i class="fa fa-clock" style="font-size:20px"></i><strong style="font-size:15px"> Horário ETL</strong>
+          </div>
+          <div class="panel-body">
+            <table class="table bootstrap-datatable countries">
+                <?php $rows = RecuperaDataIncioFimCarga(); 
+                  foreach ($rows as $row): ?>
+                  <tr>
+                    <td height="5px"><?php echo $row['HORARIO'];?></td>
+                    <td height="5px"><?php echo $row['DATA_CARGA'];?></td>
+                  </tr>
+                <?php endforeach; ?>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <i class="fa fa-bell" style="font-size:20px"></i><strong style="font-size:15px"> Grupos de carga</strong>
+          </div>
+          <div class="panel-body">
+            <table class="table bootstrap-datatable countries">
+              <thead>
+                <tr>
+                  <th>Grupo</th>
+                  <th>Horário Fim</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tbody>
+                <?php $rows = RecuperaDataGrupoCargaDiario(); 
+                  foreach ($rows as $row): ?>
+                  <tr>
+                    <td height="5px"><?php echo $row['ASSUNTO'];?></td>
+                    <td height="5px"><?php echo $row['HORARIO_FIM'];?></td>
+                  </tr>
+                <?php endforeach; ?>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
         <!--Cards-->
         <div class="row">
           <div class="col-md-2">
@@ -208,7 +259,7 @@
                 <table id="tblpctexe" class="display" cellspacing="0" width="100%" style="font-size: 12px;">
                   <thead>
                     <tr>
-                     <th>Pacote</th>
+                     <th>Processo</th>
                      <th>Job</th>
                      <th>Step</th>
                      <th>Início</th>
@@ -222,19 +273,19 @@
                         $rows = ListaPacotesEmExecucao(); 
                           foreach ($rows as $row):
                             echo "<tr>\n";
-                            echo "<td>" . $row['DESCRICAOPACOTE'] . "</td> \n";
-                            echo "<td>" . $row['JOB'] . "</td> \n";
-                            echo "<td>" . $row['STEP'] . "</td> \n";
-                            echo "<td>" . $row['HORARIOINICIO'] . "</td> \n";
-                            echo "<td>" . $row['USUARIOEXEC'] . "</td> \n";
-                            echo "<td>" . $row['SERVIDOREXEC'] . "</td> \n";
-                            echo "<td>" . $row['TEMPO_EM_EXECUCAO'] . "</td> \n";
+                            echo '<td class="blinkorange">' . $row['DESCRICAOPACOTE'] . "</td> \n";
+                            echo '<td class="blinkorange">' . $row['JOB'] . "</td> \n";
+                            echo '<td class="blinkorange">' . $row['STEP'] . "</td> \n";
+                            echo '<td class="blinkorange">' . $row['HORARIOINICIO'] . "</td> \n";
+                            echo '<td class="blinkorange">' . $row['USUARIOEXEC'] . "</td> \n";
+                            echo '<td class="blinkorange">' . $row['SERVIDOREXEC'] . "</td> \n";
+                            echo '<td class="blinkorange">' . $row['TEMPO_EM_EXECUCAO'] . "</td> \n";
                       endforeach; ?>
                       </tr>
                     </tbody>
                     <tfoot>
                       <tr>
-                        <th>Pacote</th>
+                        <th>Processo</th>
                         <th>Job</th>
                         <th>Step</th>
                         <th>Início</th>
@@ -265,7 +316,7 @@
                 <table id="tblpctexecerro" class="display" cellspacing="0" width="100%" style="font-size: 12px;">
                   <thead>
                     <tr>
-                     <th>Pacote</th>
+                     <th>Processo</th>
                      <th>Início</th>
                      <th>Usuário</th>
                      <th>Tempo em exec</th>
@@ -289,7 +340,7 @@
                     </tbody>
                     <tfoot>
                      <tr>
-                      <th>Pacote</th>
+                      <th>Processo</th>
                       <th>Início</th>
                       <th>Usuário</th>
                       <th>Tempo em exec</th>
@@ -308,9 +359,9 @@
         <div id="accordion">
           <div class="card">
             <div class="card-header" id="headingThree">
-              <h5 class="mb-0" id="PctExecucaoSucesso">
+              <h5 class="mb-0" id="PctExecutadosDia">
                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                   <span>Pacotes executados no dia com sucesso</span>
+                   <span>Pacotes executados no dia</span>
                 </button>
               </h5>
             </div>
@@ -320,15 +371,15 @@
                 <table id="tblpctexesuc" class="display" cellspacing="0" width="100%" style="font-size: 12px;">
                   <thead>
                     <tr>
-                      <th>Pacote</th>
-                      <th>Tm. Min.</th>
-                      <th>Tm. Hr.</th>
+                      <th>Processo</th>
+                      <th>TM. Min.</th>
+                      <th>TM. Hor.</th>
                       <th>Dt. Ult. Exec. 6meses</th>
                       <th>St. Atual</th>
                       <th>Hor. Ini Atual</th>
                       <th>Hor. Fim Atual</th>
                       <th>Tpo Min. Atual</th>
-                      <th>Tpo Hr. Atual</th>
+                      <th>Tpo Hor. Atual</th>
                       <th>Usu. Exec.</th>
                     </tr>
                   </thead>
@@ -352,7 +403,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                              <th>Pacote</th>
+                              <th>Processo</th>
                               <th>Tempo Médio MIN</th>
                               <th>Tempo Médio HOR</th>
                               <th>Data Ult. Exec. 6meses</th>
