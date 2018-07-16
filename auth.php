@@ -16,7 +16,7 @@ if(empty($errors)){
      redirect('home.php',false);
 
   } else {
-    $session->msg("d", "Nombre de usuario y/o contraseña incorrecto.");
+    $session->msg("d", "Nome do usuário ou senha incorreto");
     redirect('index.php',false);
   }
 

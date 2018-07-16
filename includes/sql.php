@@ -356,7 +356,7 @@ function  monthlySales($year){
 function QtdPacotesErro(){
    try{
         $conecta_mssql = conecta_mssql::getConnection();
-        $query         = $conecta_mssql->query("EXECUTE BUICTRDBS..STP_MONITOR_DW_PACOTE_ERRO");
+        $query         = $conecta_mssql->query("EXECUTE BUICTRDBS..STP_MONITOR_DW_PROCESSO_ERRO");
         $row = $query->fetchAll();
         echo $total = count($row);
       }
@@ -374,7 +374,7 @@ function QtdPacotesErro(){
 function QtdPacotesSucesso(){
    try{
         $conecta_mssql = conecta_mssql::getConnection();
-        $query         = $conecta_mssql->query("EXECUTE BUICTRDBS..STP_MONITOR_DW_PACOTE_SUCESSO");
+        $query         = $conecta_mssql->query("EXECUTE BUICTRDBS..STP_MONITOR_DW_PROCESSO_SUCESSO");
         $row = $query->fetchAll();
         echo $total = count($row);
       }
@@ -391,7 +391,7 @@ function QtdPacotesSucesso(){
 function QtdPacotesEmExecucao(){
    try{
         $conecta_mssql = conecta_mssql::getConnection();
-        $query         = $conecta_mssql->query("EXECUTE BUICTRDBS..STP_MONITOR_DW_PACOTE_EXECUCAO");
+        $query         = $conecta_mssql->query("EXECUTE BUICTRDBS..STP_MONITOR_DW_PROCESSO_EXECUCAO");
         $row = $query->fetchAll();
         echo $total = count($row);
       }
@@ -409,7 +409,7 @@ function QtdPacotesEmExecucao(){
 function ListaPacotesEmExecucao(){
         try {
               $conecta_mssql = conecta_mssql::getConnection();
-              $query         = $conecta_mssql->prepare("EXECUTE BUICTRDBS..STP_MONITOR_DW_PACOTE_EXECUCAO");
+              $query         = $conecta_mssql->prepare("EXECUTE BUICTRDBS..STP_MONITOR_DW_PROCESSO_EXECUCAO");
               $query ->execute();
               return $query->fetchAll(PDO::FETCH_ASSOC);
         }
@@ -427,7 +427,7 @@ function ListaPacotesEmExecucao(){
 function ListaPacotesErro(){
         try {
               $conecta_mssql = conecta_mssql::getConnection();
-              $query         = $conecta_mssql->prepare("EXECUTE BUICTRDBS..STP_MONITOR_DW_PACOTE_ERRO");
+              $query         = $conecta_mssql->prepare("EXECUTE BUICTRDBS..STP_MONITOR_DW_PROCESSO_ERRO");
               $query ->execute();
               return $query->fetchAll(PDO::FETCH_ASSOC);
         }
@@ -446,7 +446,7 @@ function ListaPacotesErro(){
 function ListaPacotesSucesso(){
         try {
               $conecta_mssql = conecta_mssql::getConnection();
-              $query         = $conecta_mssql->prepare("EXECUTE BUICTRDBS..STP_MONITOR_DW_PACOTE_SUCESSO");
+              $query         = $conecta_mssql->prepare("EXECUTE BUICTRDBS..STP_MONITOR_DW_PROCESSO_SUCESSO");
               $query ->execute();
               return $query->fetchAll(PDO::FETCH_ASSOC);
         }
@@ -465,7 +465,7 @@ function ListaPacotesSucesso(){
 function ListaPacotesExecutadosDia(){
         try {
               $conecta_mssql = conecta_mssql::getConnection();
-              $query         = $conecta_mssql->prepare("EXECUTE BUICTRDBS..STP_MONITOR_DW_PACOTE_DIARIO");
+              $query         = $conecta_mssql->prepare("EXECUTE BUICTRDBS..STP_MONITOR_DW_PROCESSO_DIARIO");
               $query ->execute();
               return $query->fetchAll(PDO::FETCH_ASSOC);
         }
@@ -503,6 +503,24 @@ function RecuperaDataIncioFimCarga(){
         try {
               $conecta_mssql = conecta_mssql::getConnection();
               $query         = $conecta_mssql->prepare("EXECUTE BUICTRDBS..STP_MONITOR_DW_INICIO_FIM_ETL_DIARIO");
+              $query ->execute();
+              return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        catch (PDOException $exception){
+        //echo  $exception->getMessage();
+        echo "Erro!";
+        //return null;
+        }              
+}
+
+/*--------------------------------------------------------------*/
+/* Exibir processsos
+/*--------------------------------------------------------------*/
+function ListaProcessos(){
+        try {
+              $conecta_mssql = conecta_mssql::getConnection();
+              $query         = $conecta_mssql->prepare("SELECT * FROM BUICTRDBS..CTR_PRC_PRCCGA ORDER BY PRC_SEQ");
               $query ->execute();
               return $query->fetchAll(PDO::FETCH_ASSOC);
         }

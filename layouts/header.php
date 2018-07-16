@@ -42,7 +42,7 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Carga diária</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">Monitoramento diário</a>
+                            <a href="home.php">Monitoramento diário</a>
                         </li>
                         <li>
                             <a href="#">Histórico de carga</a>
@@ -53,7 +53,7 @@
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Cadastros</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="#">Cadastro de processos de carga</a>
+                            <a href="processo.php">Cadastro de processos de carga</a>
                         </li>
                         <li>
                             <a href="#">Cadastro de dependências</a>
@@ -85,7 +85,7 @@
                 <div class="container-fluid">
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fas fa-align-left"></i>
-                        <span>Exibir barra</span>
+                        <span>Exibir menu</span>
                     </button>
                 </div>
             </nav>

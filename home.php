@@ -84,7 +84,7 @@
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge"><?php QtdpacotesemExecucao()?></div>
-                                <div>Processos em Execução</div>
+                                <div style="height: 40px;">Processos em Execução</div>
                             </div>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge"><?php QtdPacotesErro()?></div>
-                                <div>Execuções com falha</div>
+                                <div style="height: 40px;">Execuções com falha</div>
                             </div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge">0</div>
-                                <div>Execução demorada</div>
+                                <div style="height: 40px;">Execução demorada</div>
                             </div>
                         </div>
                     </div>
@@ -150,7 +150,7 @@
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge">0</div>
-                                <div>Processos não executados</div>
+                                <div style="height: 40px;">Processos não executados</div>
                             </div>
                         </div>
                     </div>
@@ -172,7 +172,7 @@
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge"><?php QtdPacotesSucesso()?></div>
-                                <div>Execuções com Sucesso</div>
+                                <div style="height: 40px;">Execuções com Sucesso</div>
                             </div>
                         </div>
                     </div>
@@ -259,10 +259,10 @@
                 <table id="tblpctexe" class="display" cellspacing="0" width="100%" style="font-size: 12px;">
                   <thead>
                     <tr>
-                     <th>Processo</th>
                      <th>Job</th>
                      <th>Step</th>
                      <th>Início</th>
+                     <th>Processo</th>
                      <th>Usuário</th>
                      <th>Servidor exec</th>
                      <th>Tempo em exec</th>
@@ -273,10 +273,10 @@
                         $rows = ListaPacotesEmExecucao(); 
                           foreach ($rows as $row):
                             echo "<tr>\n";
-                            echo '<td class="blinkorange">' . $row['DESCRICAOPACOTE'] . "</td> \n";
                             echo '<td class="blinkorange">' . $row['JOB'] . "</td> \n";
-                            echo '<td class="blinkorange">' . $row['STEP'] . "</td> \n";
+                            echo '<td class="blinkorange">' . $row['STEP_NAME'] . "</td> \n";
                             echo '<td class="blinkorange">' . $row['HORARIOINICIO'] . "</td> \n";
+                            echo '<td class="blinkorange">' . $row['DESCRICAOPACOTE'] . "</td> \n";
                             echo '<td class="blinkorange">' . $row['USUARIOEXEC'] . "</td> \n";
                             echo '<td class="blinkorange">' . $row['SERVIDOREXEC'] . "</td> \n";
                             echo '<td class="blinkorange">' . $row['TEMPO_EM_EXECUCAO'] . "</td> \n";
@@ -285,10 +285,10 @@
                     </tbody>
                     <tfoot>
                       <tr>
-                        <th>Processo</th>
                         <th>Job</th>
                         <th>Step</th>
                         <th>Início</th>
+                        <th>Processo</th>
                         <th>Usuário</th>
                         <th>Servidor exec</th>
                         <th>Tempo em exec</th>
@@ -421,6 +421,4 @@
           </div>
          </div>
         </div>
-      <?php
-        require_once('layouts/footer.php');
-      ?>
+<?php include_once('layouts/footer.php'); ?>
