@@ -14,6 +14,7 @@ $(document).ready(function() {
         "aaSorting": [[ 0, "asc" ]],
         "bPaginate": true,
         "bFilter": true,
+        "iDisplayLength": 25,
         "sType": "brazilian", 
         "aoColumns": [
         { "sType": 'numeric' },
@@ -22,6 +23,7 @@ $(document).ready(function() {
         { "sType": 'text' },
         { "sType": 'text' },
         { "sType": 'text' },
+        { "sType": 'image' },
         ]            
     });
 });
@@ -49,6 +51,7 @@ $(document).ready(function() {
                   <th style="width: 7%;"> Tipo de processo </th>
                   <th style="width: 7%;"> Horário de carga </th>
                   <th style="width: 10%;"> Data do últ. exec. </th>
+                  <th style="width: 2%;"> Ações </th>
                 </tr>
               </thead>
                <?php 
@@ -62,8 +65,20 @@ $(document).ready(function() {
                     echo "<td>" . $processo['PRC_TIP_PRC'] . "</td> \n";
                     echo "<td>" . $processo['PRC_NOM_HORCGA'] . "</td> \n";
                     echo "<td>" . $processo['PRC_DAT_ULTEXE'] . "</td> \n";
-                  endforeach; ?>
-                </tr>
+                    echo "<td>\n";
+                      echo "<div class=\"btn-group\"> \n";
+                        echo "<a href=\"exitar_processo.php?id= " . $processo['PRC_SEQ'] . "class=\"btn btn-info btn-xs\"  title=\"Editar\" data-toggle=\"tooltip\"> \n";
+                          echo "<span class=\"glyphicon glyphicon-edit\"></span> \n";
+                        echo "</a> \n";
+                      echo "</div> \n";
+                      echo "<div class=\"btn-group\"> \n";
+                        echo "<a href=\"excluir_processo.php?id= " . $processo['PRC_SEQ'] . "class=\"btn btn-info btn-xs\"  title=\"Editar\" data-toggle=\"tooltip\"> \n";
+                          echo "<span class=\"glyphicon glyphicon-trash\"></span> \n";
+                        echo "</a> \n";
+                      echo "</div> \n";
+                    echo "</td> \n";
+                    echo "</tr> \n";
+                endforeach; ?>
               </tbody>
             </table>
           </div>

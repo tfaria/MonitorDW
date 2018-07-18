@@ -10,7 +10,7 @@
             else echo "Painel Monitoramento DW";?>
     </title>
 
-    <link rel="stylesheet" type="text/css" href="libs/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="libs/css/style3.css">
     <link rel="stylesheet" type="text/css" href="libs/css/sb-admin-2.css">
     <link rel="stylesheet" type="text/css" href="libs/css/font-awesome.min.css">
@@ -67,6 +67,9 @@
                         <li>
                             <a href="#">Cadastro de assuntos</a>
                         </li>
+                        <li>
+                            <a href="#">Cadastro de cubos</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -83,7 +86,7 @@
         <div id="content">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
                         <i class="fas fa-align-left"></i>
                         <span>Exibir menu</span>
                     </button>

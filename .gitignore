@@ -11,3 +11,4 @@ bin-release/
 # information for Eclipse / Flash Builder.
 config.php
 includes/
+sql_araujo/
